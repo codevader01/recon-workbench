@@ -14,20 +14,7 @@ uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 Open **http://127.0.0.1:8000**. The API documentation is at **http://127.0.0.1:8000/docs**.
 
-## PDF concept → implementation map
 
-| Pages in supplied PDF | Subject | Implementation |
-|---|---|---|
-| 1–10 | Passive vs active reconnaissance; organizational, network and system footprinting | Overview, scope notice, concept map |
-| 11–16 | Search engines and advanced search operators | Domain-scoped search query builder with Google/Bing links |
-| 17–24 | Netcraft, Subfinder, dnsx, automated subdomain enumeration | Passive certificate transparency lookup; optional external tools |
-| 25–28 | EXIF metadata and geospatial analysis | Local image EXIF/GPS parser and optional map link |
-| 29–32 | Web and email footprinting, header analysis | Local email header analyzer with relay route and SPF/DKIM/DMARC signals |
-| 29–37 | Shodan, Censys, internet service intelligence and TLS certificates | External intelligence links; active, authorized certificate inspector |
-| 38–39 | Alerting / Google Alerts | Google Alerts link; not automated in this app |
-| 40–44 | WHOIS, registration, DNS NS records and bash scripts | Public RDAP data, async DNS record lookup |
-| 44–47 | dnsenum, DNSDumpster, Shell-GPT and DNS maps | DNS modules and external tools; no unverified AI output |
-| 47–49 | Countermeasures, governance, disclosure protection | Reviewable defense checklist |
 
 ## Features
 
