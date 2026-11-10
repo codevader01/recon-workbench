@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recon Workbench | Footprinting Suite</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <div class="shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">◈</div>
+                <div><b>RECON<span>LAB</span></b><small>FOOTPRINTING SUITE</small></div>
+            </div>
+            <div class="side-label">WORKSPACE</div>
+            <nav id="menu">
+                <button class="nav active" data-tab="overview">▦ <span>Overview</span></button>
+                <button class="nav" data-tab="domain">◎ <span>DNS Intelligence</span></button>
+                <button class="nav" data-tab="subdomains">◈ <span>Subdomain Discovery</span></button>
+                <button class="nav" data-tab="registry">▤ <span>WHOIS / RDAP</span></button>
+                <button class="nav" data-tab="tls">◇ <span>TLS Certificate</span></button>
+                <button class="nav" data-tab="search">⌕ <span>Search Operators</span></button>
+                <button class="nav" data-tab="email">✉ <span>Email Headers</span></button>
+                <button class="nav" data-tab="image">▧ <span>Image EXIF</span></button>
+                <button class="nav" data-tab="resources">↗ <span>External OSINT</span></button>
+                
+                <button class="nav" data-tab="defense">⬡ <span>Defense Checklist</span></button>
+            <a href="https://github.com/codevader01"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="developer-link">
+
+    <svg width="20" height="20" viewBox="0 0 24 24"
+         fill="currentColor" aria-hidden="true">
+      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.16 1.18A11 11 0 0 1 12 6.31c.98 0 1.96.13 2.88.39 2.19-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.41-2.68 5.39-5.24 5.67.41.36.78 1.07.78 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+    </svg>
+
+    <span>Built by <strong>codevader</strong></span>
+  </a>
+            </nav>
+
+        </aside>
+        <main class="content">
+            <header class="top">
+                <div>
+                    <div class="eyebrow">SECURITY INTELLIGENCE / RECONNAISSANCE</div>
+                    <h1 id="pageTitle">Attack Surface Overview</h1>
+                    <p id="pageDesc">Explore public digital footprints, understand exposure, and prioritize defensive action.</p>
+                </div>
+                <div class="head-actions"><span class="status"><span class="pulse"></span> API <span id="health">checking</span></span>
+                    <button class="ghost" id="export">↓ Export JSON</button>
+                </div>
+            </header>
+            <section class="targetbar">
+                <label>ASSESSMENT DOMAIN
+                    <input id="domain" placeholder="example.com" autocomplete="off" value="example.com">
+                </label>
+                <label class="authorization">
+                    <input type="checkbox" id="auth"><span>I own this domain or have explicit permission for live checks</span></label>
+                <button id="run" class="primary">▶ Run overview</button>
+            </section>
+            <div id="toast" class="toast" role="status"></div>
+            <section class="panel visible" id="tab-overview">
+                <div class="stats">
+                    <article>
+                        <div class="statlabel">DISCOVERED SUBDOMAINS</div>
+                        <div class="statvalue" id="s-sub">—</div>
+                        <div class="statnote">Certificate transparency</div>
+                    </article>
+                    <article>
+                        <div class="statlabel">DNS RECORD TYPES</div>
+                        <div class="statvalue" id="s-dns">—</div>
+                        <div class="statnote">Public DNS lookups</div>
+                    </article>
+                    <article>
+                        <div class="statlabel">OBSERVATIONS</div>
+                        <div class="statvalue" id="s-risk">—</div>
+                        <div class="statnote">Configuration review signals</div>
+                    </article>
+                    <article>
+                        <div class="statlabel">MODULES</div>
+                        <div class="statvalue">9</div>
+                        <div class="statnote">Including external references</div>
+                    </article>
+                </div>
+                <div class="twocol">
+                    <section class="surface">
+                        <div class="surface-head">
+                            <h2>Assessment results</h2><span class="smallflag">LIVE / ON-DEMAND</span></div>
+                        <div id="overview-output" class="placeholder">Enter a domain, confirm authorization, then run an overview. RDAP and certificate transparency are available separately without direct scans.</div>
+                    </section>
+                    <section class="surface">
+                        <div class="surface-head">
+                            <h2>Chapter concepts</h2><span class="smallflag">LEARNING MAP</span></div>
+                        <div class="concepts">
+                            <div><span>01</span><b>Passive reconnaissance</b><small>Search engines, archives, job posts, CT logs</small></div>
+                            <div><span>02</span><b>Active reconnaissance</b><small>DNS interrogation, verified TLS connections</small></div>
+                            <div><span>03</span><b>Footprinting artifacts</b><small>Domain registry, DNS, email, image metadata</small></div>
+                            <div><span>04</span><b>Countermeasures</b><small>Disclosure minimization, privacy, training</small></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <section class="panel" id="tab-domain">
+                <div class="surface">
+                    <h2>DNS intelligence</h2>
+                    <p>Query public A, AAAA, MX, NS, TXT, CAA, SOA, and CNAME records. DNS queries contact external resolvers and require authorization.</p>
+                    <button data-action="dns" class="primary">Resolve DNS</button>
+                    <div id="out-dns" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-subdomains">
+                <div class="surface">
+                    <h2>Passive subdomain discovery</h2>
+                    <p>Enumerate names published in Certificate Transparency logs through crt.sh. Unverified names are not proof of live hosts, ownership, or exploitable assets.</p>
+                    <button class="primary" data-action="subdomains">Search certificate logs</button>
+                    <div id="out-subdomains" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-registry">
+                <div class="surface">
+                    <h2>Registration intelligence — RDAP</h2>
+                    <p>WHOIS concepts implemented via the modern public RDAP protocol. Registry privacy may hide contact data.</p>
+                    <button class="primary" data-action="rdap">Get registration details</button>
+                    <div id="out-rdap" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-tls">
+                <div class="surface">
+                    <h2>TLS certificate details</h2>
+                    <p>One validated TLS connection to port 443, showing protocol, cipher, issuer, expiry and certificate hostnames. Only for approved targets.</p>
+                    <button class="primary" data-action="tls">Inspect certificate</button>
+                    <div id="out-tls" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-search">
+                <div class="surface">
+                    <h2>Safe search operator builder</h2>
+                    <p>Generate domain-scoped, non-invasive Google/Bing searches. No login discovery, sensitive-file hunting, or mass scraping is performed.</p>
+                    <div class="formrow">
+                        <select id="searchCategory">
+                            <option value="pdf">Public PDFs</option>
+                            <option value="docs">Public Word documents</option>
+                            <option value="pages">Page title</option>
+                            <option value="news">Recently indexed pages</option>
+                            <option value="all">All pages</option>
+                        </select>
+                        <input id="keyword" placeholder="Optional keyword (e.g. security policy)">
+                        <button class="primary" data-action="search">Build query</button>
+                    </div>
+                    <div id="out-search" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-email">
+                <div class="surface">
+                    <h2>Email header analysis</h2>
+                    <p>Paste raw RFC 5322 headers. Analysis runs entirely in the local FastAPI process; it doesn't submit message content to any external service.</p>
+                    <textarea id="rawheaders" rows="10" spellcheck="false" placeholder="Received: from mail.example.com ...&#10;Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass&#10;From: sender@example.com"></textarea>
+                    <button class="primary" data-action="headers">Analyze headers</button>
+                    <div id="out-headers" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-image">
+                <div class="surface">
+                    <h2>Photo EXIF privacy check</h2>
+                    <p>Inspect image metadata, camera details, timestamps and embedded GPS coordinates. Files are processed in memory and not stored on disk.</p>
+                    <input id="photo" type="file" accept="image/*">
+                    <button class="primary" data-action="exif">Analyze image</button>
+                    <div id="out-exif" class="result"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-resources">
+                <div class="surface">
+                    <h2>Reference services from the chapter</h2>
+                    <p>Some services are provided as manual links because they require external accounts, paid API access or integrations not bundled with this application. No results are invented.</p>
+                    <div id="links" class="linkgrid"></div>
+                </div>
+            </section>
+            <section class="panel" id="tab-defense">
+                <div class="surface">
+                    <h2>Reconnaissance countermeasures</h2>
+                    <p>Use this checklist to turn collected information into operational improvements. Stored only in this browser session.</p>
+                    <div id="checklist"></div>
+                    <div class="result"><b id="completed">0 / 9 controls reviewed</b></div>
+                </div>
+            </section>
+            <footer>RECONLAB v1.0 · Educational OSINT & defensive footprinting · No port scanning or exploitation</footer>
+        </main>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
