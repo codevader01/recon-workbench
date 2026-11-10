@@ -1,7 +1,5 @@
 # ReconLab — Reconnaissance & Footprinting Workbench
 
-Full-stack training dashboard based on the user's 49-page PDF extract of **Chapter 3: Reconnaissance and Footprinting** (book pp. 83–131). Built with **HTML/CSS/vanilla JavaScript** and **Python/FastAPI**.
-
 ## Quick start
 
 ```bash
@@ -13,8 +11,6 @@ pip install -r requirements.txt
 uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 Open **http://127.0.0.1:8000**. The API documentation is at **http://127.0.0.1:8000/docs**.
-
-
 
 ## Features
 
